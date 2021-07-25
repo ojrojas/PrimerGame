@@ -13,6 +13,13 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin Fonts/FontGame.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/FontGame.spritefont
+
 #begin GameStates/GamePlay/Barren.jpg
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -36,6 +43,12 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:GameStates/GamePlay/bullet.png
+
+#begin GameStates/GamePlay/bulletSound.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:GameStates/GamePlay/bulletSound.wav
 
 #begin GameStates/GamePlay/Fighter.png
 /importer:TextureImporter

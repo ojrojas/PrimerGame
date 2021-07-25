@@ -8,8 +8,8 @@ namespace PrimerGame
         [STAThread]
         static void Main()
         {
-            using (var game = new PrimerCoreGame())
-                game.Run();
+            using var game = new PrimerCoreGame();
+            game.Run();
         }
     }
 }

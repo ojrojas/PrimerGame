@@ -8,7 +8,7 @@ namespace Core.Mappers
 {
     public class GamePlayInputMapper : IBaseInputMapper
     {
-        public  IEnumerable<IBaseInputCommand> GetGamePadState(GamePadState gamePadState)
+        public IEnumerable<IBaseInputCommand> GetGamePadState(GamePadState gamePadState)
         {
             var commands = new List<IBaseInputCommand>();
             if (gamePadState.Buttons.Back == ButtonState.Pressed)
@@ -21,26 +21,25 @@ namespace Core.Mappers
                 commands.Add(new GamePlayInputCommand.GamePause());
             }
 
-            if (gamePadState.DPad.Right == ButtonState.Pressed)
+            if (gamePadState.DPad.Right == ButtonState.Pressed || gamePadState.ThumbSticks.Left.X > 0)
             {
                 commands.Add(new GamePlayInputCommand.PlayerMoveRight());
             }
 
-            if (gamePadState.DPad.Left == ButtonState.Pressed)
+            if (gamePadState.DPad.Left == ButtonState.Pressed || gamePadState.ThumbSticks.Left.X < 0)
             {
                 commands.Add(new GamePlayInputCommand.PlayerMoveLeft());
             }
 
-            if (gamePadState.DPad.Up == ButtonState.Pressed)
+            if (gamePadState.DPad.Up == ButtonState.Pressed || gamePadState.ThumbSticks.Left.Y > 0)
             {
                 commands.Add(new GamePlayInputCommand.PlayerMoveUp());
             }
 
-            if (gamePadState.DPad.Down == ButtonState.Pressed)
+            if (gamePadState.DPad.Down == ButtonState.Pressed || gamePadState.ThumbSticks.Left.Y < 0)
             {
                 commands.Add(new GamePlayInputCommand.PlayerMoveDown());
             }
-
 
             if (gamePadState.Buttons.A == ButtonState.Pressed)
             {
@@ -90,17 +89,17 @@ namespace Core.Mappers
         {
             var commands = new List<GamePlayInputCommand>();
 
-            // if (mouseState.X(Keys.Right))
+            // if (mouseState.Position.X > 0)
             // {
             //     commands.Add(new GamePlayInputCommand.PlayerMoveRight());
             // }
 
-            // if (mouseState.IsKeyDown(Keys.Left))
+            // if (mouseState.Position.X < 0)
             // {
             //     commands.Add(new GamePlayInputCommand.PlayerMoveLeft());
             // }
 
-            // if (mouseState.IsKeyDown(Keys.Space))
+            // if (mouseState.LeftButton == ButtonState.Pressed)
             // {
             //     commands.Add(new GamePlayInputCommand.PlayerShoots());
             // }
